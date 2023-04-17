@@ -1,0 +1,28 @@
+/*
+
+#include <stdio.h>
+#include <ctype.h>
+
+
+
+int	main(void)
+{
+	char	c;
+
+	c = 128;
+	printf("Salida de isascii: %i\n", isascii(c));
+	printf("Salida de ft_isascii: %i\n", ft_isascii(c));
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+*/
