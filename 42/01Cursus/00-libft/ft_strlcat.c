@@ -1,53 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 11:39:21 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:28:50 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/18 21:37:57 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/18 23:47:08 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <string.h>
-
-void	*ft_memset(void *str, int c, unsigned int n)
+unsigned int	ft_strlcat(char *dst, char *src, unsigned int size)
 {
 	unsigned int	i;
-	char			*p;
+	unsigned int	c;
+	unsigned int	c2;
 
-	i = 0;
-	p = str;
-	while (i < n)
+	c = 0;
+	while (src[c] != '\0')
+		c++;
+	c2 = 0;
+	while (dst[c2] != '\0')
 	{
-		p[i] = c;
+		c++;
+		c2++;
+	}
+	i = 0;
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dst[i] = src[i];
 		i++;
 	}
-	return (p);
+	return (c);
 }
-
-/*
-int	main(void)
-{
-	char	str[50];
-	char	str2[50];
-	int		i;
-
-	strcpy(str, "This is string.h library function");
-	puts(str);
-	i = 0;
-	while (str[i])
-	{
-		str2[i] = str[i];
-		i++;
-	}
-	str2[i] = '\0';
-	memset(str, '$', 7);
-	puts(str);
-	ft_memset(str2, '$', 7);
-	puts(str2);
-	return (0);
-}
-*/

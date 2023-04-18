@@ -1,53 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 11:39:21 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:28:50 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/18 16:37:38 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/18 21:29:25 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <string.h>
-
-void	*ft_memset(void *str, int c, unsigned int n)
+void	bzero(void *s, unsigned int n)
 {
-	unsigned int	i;
 	char			*p;
+	unsigned int	i;
 
 	i = 0;
-	p = str;
+	p = s;
 	while (i < n)
 	{
-		p[i] = c;
+		p[i] = '\0';
 		i++;
 	}
-	return (p);
 }
-
-/*
-int	main(void)
-{
-	char	str[50];
-	char	str2[50];
-	int		i;
-
-	strcpy(str, "This is string.h library function");
-	puts(str);
-	i = 0;
-	while (str[i])
-	{
-		str2[i] = str[i];
-		i++;
-	}
-	str2[i] = '\0';
-	memset(str, '$', 7);
-	puts(str);
-	ft_memset(str2, '$', 7);
-	puts(str2);
-	return (0);
-}
-*/
