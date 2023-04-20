@@ -6,14 +6,16 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:10:27 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 22:02:21 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:25:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
+#include <stdlib.h>
+
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	c;
+	size_t	i;
+	size_t	c;
 
 	c = 0;
 	while (src[c] != '\0')
