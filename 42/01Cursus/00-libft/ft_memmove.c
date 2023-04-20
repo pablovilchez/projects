@@ -6,18 +6,20 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:06:04 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:26:53 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:26:45 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memmove(void *str1, const void *str2, unsigned int n)
-{
-	char			*d;
-	char			*s;
-	unsigned int	i;
+#include <stdlib.h>
 
-	d = str1;
-	s = str2;
+void	*ft_memmove(void *str1, const void *str2, size_t n)
+{
+	char	*d;
+	char	*s;
+	size_t	i;
+
+	d = (char *)str1;
+	s = (char *)str2;
 	i = 0;
 	while (i < n)
 	{
