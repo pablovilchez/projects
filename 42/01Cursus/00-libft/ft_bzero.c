@@ -6,17 +6,19 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:37:38 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:29:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/20 01:09:18 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	bzero(void *s, unsigned int n)
+#include <stdlib.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	char			*p;
-	unsigned int	i;
+	char	*p;
+	size_t	i;
 
 	i = 0;
-	p = s;
+	p = (char *)s;
 	while (i < n)
 	{
 		p[i] = '\0';

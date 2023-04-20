@@ -6,20 +6,22 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:58:43 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:27:22 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/20 01:09:14 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memcpy(void *dest, const void *src, unsigned int n)
-{
-	char			*d;
-	char			*s;
-	unsigned int	i;
+#include <stdlib.h>
 
-	d = dest;
-	s = src;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+	size_t	i;
+
+	d = (char *)dest;
+	s = (char *)src;
 	i = 0;
-	while (src != '\0')
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;
