@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/20 13:46:42 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/04/21 11:41:10 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ FILES = ft_bzero.c\
 		ft_toupper.c
 
 OBJECTS = $(FILES:.c=.o)
+
+
 
 FLAGS = -Wall -Wextra -Werror
 
