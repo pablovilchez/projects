@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 12:21:28 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/20 13:44:55 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/22 13:33:11 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
 	char	ch;
 	char	*p;
+	size_t	i;
 
 	i = 0;
-	ch = c;
 	p = (char *)str;
-	while (p)
+	ch = (char)c;
+	while (p[i])
 	{
-		if (*p == ch)
-			return (p);
-		p++;
+		if (p[i] == ch)
+			return (&p[i]);
+		i++;
 	}
+	if (ch == '\0')
+		return (&p[i]);
 	return (NULL);
 }
