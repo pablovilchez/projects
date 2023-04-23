@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:57:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/23 21:12:29 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/24 00:41:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *str, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *src, unsigned int start, size_t len);
 int		ft_tolower(int ch);
 int		ft_toupper(int ch);
 
