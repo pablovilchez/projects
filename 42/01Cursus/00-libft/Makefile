@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/23 00:35:27 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/04/23 12:09:02 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ FILES = ft_bzero.c\
 		ft_isdigit.c\
 		ft_isprint.c\
 		ft_memchr.c\
+		ft_memcmp.c\
 		ft_memcpy.c\
 		ft_memmove.c\
 		ft_memset.c\
@@ -27,6 +28,7 @@ FILES = ft_bzero.c\
 		ft_strlcpy.c\
 		ft_strlen.c\
 		ft_strncmp.c\
+		ft_strnstr.c\
 		ft_strrchr.c\
 		ft_tolower.c\
 		ft_toupper.c

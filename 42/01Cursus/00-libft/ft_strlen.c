@@ -6,13 +6,15 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:33:20 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 11:34:15 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:32:15 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include<stdlib.h>
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*(str + i) != 0)

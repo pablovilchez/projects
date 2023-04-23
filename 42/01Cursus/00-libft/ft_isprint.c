@@ -6,11 +6,11 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:54:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/20 01:09:12 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/23 11:26:36 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);
