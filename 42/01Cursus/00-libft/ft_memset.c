@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:39:21 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/18 21:28:50 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:24:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *str, int c, unsigned int n)
 	char			*p;
 
 	i = 0;
-	p = str;
+	p = (char *)str;
 	while (i < n)
 	{
 		p[i] = c;
