@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:15:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/25 17:04:52 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/26 12:02:18 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,40 @@ size_t	tam(char const *s, char c, size_t pos)
 	return (i);
 }
 
+void	*free_all(char **matrix, size_t num)
+{
+	while (num > 0)
+	{
+		free((char *)matrix[num - 1]);
+		num--;
+	}
+	free(matrix);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	num;
 	size_t	i;
-	char	*matrix[];
+	char	**matrix;
 
 	i = 0;
 	num = 0;
-	*matrix = (char *)malloc(sizeof(char *) * count_str(s, c) + 1);
-	while (num < count_str(s, c))
+	matrix = malloc(sizeof(char *) * (count_str(s, c) + 1));
+	if (!matrix)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		matrix[num] = ft_substr(s, i, tam(s, c, i));
-		if (matrix[num] == NULL)
+		if (s[i] != c)
 		{
-			while (num >= 0)
-			{
-				free((char *)matrix[num]);
-				num--;
-			}
-			return (NULL);
+			matrix[num] = ft_substr(s, i, tam(s, c, i));
+			if (matrix[num] == NULL)
+				return (free_all(matrix, num));
+			num++;
+			i += tam(s, c, i) - 1;
 		}
-		num++;
+		i++;
 	}
+	matrix[num] = NULL;
 	return (matrix);
 }
