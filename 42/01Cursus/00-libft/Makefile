@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/26 19:20:00 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/04/26 20:59:50 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,11 @@ FILES = ft_atoi.c\
 		ft_tolower.c\
 		ft_toupper.c
 
+F_BONUS = ft_lstnew.c
+
 OBJECTS = $(FILES:.c=.o)
+
+OBJ_BONUS = $(F_BONUS:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -60,11 +64,14 @@ $(OBJECTS): $(FILES)
 	@gcc $(FLAGS) -c $(FILES)
 
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f $(OBJECTS) $(OBJ_BONUS)
 
 fclean:
-	@rm -f $(NAME) $(OBJECTS)
+	@rm -f $(NAME) $(OBJECTS) ($OBJ_BONUS)
 
 re: fclean all
 
-.PHONY: re all fclean clean
+bonus: $(NAME) $(OBJECTS) $(OBJ_BONUS)
+	@ar rcs $(NAME) $(OBJECTS) $(OBJ_BONUS)
+
+.PHONY: all clean fclean re bonus
