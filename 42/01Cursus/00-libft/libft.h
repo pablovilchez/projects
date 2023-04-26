@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:57:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/25 10:16:46 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/04/26 12:39:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_isalpha(char c);
 int		ft_isascii(char c);
 int		ft_isdigit(char c);
 int		ft_isprint(char c);
+char	*ft_itoa(int n);
 void	*ft_memchr(const void *str, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);

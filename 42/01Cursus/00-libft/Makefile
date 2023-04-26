@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/25 10:17:04 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/04/26 12:39:42 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ FILES = ft_atoi.c\
 		ft_isascii.c\
 		ft_isdigit.c\
 		ft_isprint.c\
+		ft_itoa.c\
 		ft_memchr.c\
 		ft_memcmp.c\
 		ft_memcpy.c\
