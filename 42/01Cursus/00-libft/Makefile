@@ -6,11 +6,13 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/26 20:59:50 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/04/27 19:18:19 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+NAME_B = libft.a
 
 FILES = ft_atoi.c\
 		ft_bzero.c\
@@ -47,11 +49,20 @@ FILES = ft_atoi.c\
 		ft_tolower.c\
 		ft_toupper.c
 
-F_BONUS = ft_lstnew.c
+F_BONUS = ft_lstadd_back.c\
+		ft_lstadd_front.c\
+		ft_lstclear.c\
+		ft_lstdelone.c\
+		ft_lstiter.c\
+		ft_lstlast.c\
+		ft_lstmap.c\
+		ft_lstnew.c\
+		ft_lstsize.c
+
 
 OBJECTS = $(FILES:.c=.o)
 
-OBJ_BONUS = $(F_BONUS:.c=.o)
+OBJ_TOTAL = $(FILES:.c=.o) $(F_BONUS:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -63,15 +74,20 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): $(FILES)
 	@gcc $(FLAGS) -c $(FILES)
 
+bonus: $(NAME_B)
+
+$(NAME_B): $(NAME_B) $(OBJ_TOTAL)
+	@ar rcs $(NAME_B) $(OBJ_TOTAL)
+
+$(OBJ_TOTAL): $(FILES) $(F_BONUS)
+	@gcc $(FLAGS) -c $(FILES) $(F_BONUS)
+
 clean:
-	@rm -f $(OBJECTS) $(OBJ_BONUS)
+	@rm -f $(OBJ_TOTAL)
 
 fclean:
-	@rm -f $(NAME) $(OBJECTS) ($OBJ_BONUS)
+	@rm -f $(NAME) $(OBJ_TOTAL)
 
 re: fclean all
-
-bonus: $(NAME) $(OBJECTS) $(OBJ_BONUS)
-	@ar rcs $(NAME) $(OBJECTS) $(OBJ_BONUS)
 
 .PHONY: all clean fclean re bonus
