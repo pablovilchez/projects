@@ -2,6 +2,8 @@
     "files.associations": {
         "iostream": "cpp",
         "ostream": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "libftprintf.h": "c",
+        "unistd.h": "c"
     }
 }

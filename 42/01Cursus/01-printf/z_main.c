@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   z_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 23:27:01 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/29 18:16:28 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/29 17:39:31 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/29 21:46:52 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFT_H
+#include "libftprintf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+int	main(void)
+{
+	const char	*cadena = "ho%ila\n";
+	int			res;
 
-int		ft_printf(const char *str);
-
-#endif
+	res = ft_printf(cadena);
+	return (res);
+}
