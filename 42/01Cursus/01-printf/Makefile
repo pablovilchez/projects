@@ -6,13 +6,15 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 23:27:09 by pvilchez          #+#    #+#              #
-#    Updated: 2023/04/30 17:14:19 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/03 20:23:48 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FILES = ft_printf.c
+FILES = ft_printf.c/
+		print_str.c/
+		print_void.c
 
 OBJECTS = $(FILES:.c=.o)
 

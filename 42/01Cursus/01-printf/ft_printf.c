@@ -6,11 +6,17 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:23:08 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/03 19:04:26 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:13:59 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+size_t	put_char(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
 size_t	cast(char *str, size_t i, va_list arg)
 {
@@ -18,24 +24,23 @@ size_t	cast(char *str, size_t i, va_list arg)
 
 	count = 0;
 	if (str[i] == 'c')
-		count = print_char(va_arg(arg, char));
+		count += put_char(va_arg(arg, char));
 	else if (str[i] == 's')
-		count = print_str(va_arg(arg, char *));
+		count += print_str(va_arg(arg, char *));
 	else if (str[i] == 'p')
-		count = print_void(va_arg(arg, void *));
+		count += print_void(va_arg(arg, void *));
 	else if (str[i] == 'd')
-		count = print_dec(va_arg(arg, int));
+		count += print_dec(va_arg(arg, int));
 	else if (str[i] == 'i')
-		count = print_int(va_arg(arg, int));
+		count += print_int(va_arg(arg, int));
 	else if (str[i] == 'u')
-		count = print_unsig(va_arg(arg, unsigned int));
+		count += print_unsig(va_arg(arg, unsigned int));
 	else if (str[i] == 'x')
-		count = print_hexl(va_arg(arg, unsigned int));
+		count += print_hexl(va_arg(arg, unsigned int));
 	else if (str[i] == 'X')
-		count = print_hexu(va_arg(arg, unsigned int));
+		count += print_hexu(va_arg(arg, unsigned int));
 	else if (str[i] == '%')
-		ft_putchar('%', 1);
-		count = 1;
+		count += put_char('%');
 	return (count);
 }
 
@@ -53,7 +58,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			count += cast(&arg);
+			count += cast(str, i, s&arg);
 		}
 		else
 		{

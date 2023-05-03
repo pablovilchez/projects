@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 23:27:01 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/03 20:23:37 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/03 20:08:10 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/03 20:18:24 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFT_H
+#include "libftprintf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "./00-libft/libft.h"
+size_t	print_str(char *str)
+{
+	size_t	count;
+	size_t	i;
 
-int		ft_printf(const char *str, ...);
-size_t	print_str(char *str);
-size_t	print_void(void *p);
-
-#endif
+	count = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		count++;
+	}
+	return (count);
+}
