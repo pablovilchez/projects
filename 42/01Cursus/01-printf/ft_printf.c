@@ -6,25 +6,25 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:23:08 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/04 21:01:07 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:39:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-size_t	put_char(char c)
+size_t	put_char(int c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-size_t	cast(char *str, size_t i, va_list arg)
+size_t	cast(const char *str, size_t i, va_list arg)
 {
 	size_t	count;
 
 	count = 0;
 	if (str[i] == 'c')
-		count += put_char(va_arg(arg, char));
+		count += put_char(va_arg(arg, int));
 	else if (str[i] == 's')
 		count += print_str(va_arg(arg, char *));
 	else if (str[i] == 'p')
@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			count += cast(str, i, &arg);
+			count += cast(str, i, arg);
 		}
 		else
 		{

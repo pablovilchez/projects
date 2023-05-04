@@ -4,6 +4,7 @@
         "ostream": "cpp",
         "stdio.h": "c",
         "libftprintf.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "ft_printf.h": "c"
     }
 }

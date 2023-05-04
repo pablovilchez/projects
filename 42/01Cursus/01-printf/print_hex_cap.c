@@ -6,11 +6,11 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 20:30:53 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/04 20:41:38 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:41:20 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	phex_cap(unsigned int nbr, size_t *p)
 {
@@ -24,7 +24,7 @@ void	phex_cap(unsigned int nbr, size_t *p)
 		phex_cap(nbr / 16, p);
 	i = (nbr % 16) - 1;
 	ft_putchar(alpha[i]);
-	*p++;
+	*p = *p + 1;
 }
 
 size_t	print_hex_cap(unsigned int nbr)

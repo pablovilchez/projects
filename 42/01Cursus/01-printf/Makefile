@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 23:27:09 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/04 20:47:32 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/04 21:21:07 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,28 @@ FILES = ft_itoa_long.c\
 
 OBJECTS = $(FILES:.c=.o)
 
+LIBFT = ./libft/libft.a
+
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJECTS)
+	@cp $(LIBFT) $(NAME)
 	@ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FILES)
 	@gcc $(FLAGS) -c $(FILES)
 
+$(LIBFT):
+	@make -C ./libft all
+
 clean:
+	@make -C ./libft clean
 	@rm -f $(OBJECTS)
 
 fclean:
+	@make -C ./libft fclean
 	@rm -f $(NAME) $(OBJECTS)
 
 re: fclean all
