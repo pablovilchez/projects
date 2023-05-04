@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:23:08 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/03 22:35:51 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:01:07 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ size_t	cast(char *str, size_t i, va_list arg)
 	else if (str[i] == 'p')
 		count += print_void((unsigned long long)va_arg(arg, void *));
 	else if (str[i] == 'd')
-		count += print_dec(va_arg(arg, int));
+		count += print_int(va_arg(arg, int));
 	else if (str[i] == 'i')
 		count += print_int(va_arg(arg, int));
 	else if (str[i] == 'u')
-		count += print_unsig(va_arg(arg, unsigned int));
+		count += print_unsig_int(va_arg(arg, unsigned int));
 	else if (str[i] == 'x')
-		count += print_hexl(va_arg(arg, unsigned int));
+		count += print_hex(va_arg(arg, unsigned int));
 	else if (str[i] == 'X')
-		count += print_hexu(va_arg(arg, unsigned int));
+		count += print_hex_cap(va_arg(arg, unsigned int));
 	else if (str[i] == '%')
 		count += put_char('%');
 	return (count);

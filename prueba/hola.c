@@ -19,6 +19,8 @@ int	main(void)
 	char	*str;
 	float	num;
 	int		i;
+	int		*p;
+	int		entero;
 
 	str = "Pablo";
 	num = 10.4;
@@ -28,7 +30,9 @@ int	main(void)
 	printint(3, 1, 2, 3);
 	printf("\n");
 
-	printf("%i\n", i);
+	entero = 123;
+	p = &entero;
+	printf("%p\n", p);
 
 	return (0);
 }
