@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/01 00:48:39 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/05 19:05:05 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,24 +68,25 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@ar rcs $(NAME) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FILES)
-	@gcc $(FLAGS) -c $(FILES)
+	gcc $(FLAGS) -c $(FILES)
 
-bonus: $(NAME)
+bonus: all $(OBJ_BONUS)
 
-$(NAME): $(OBJ_BONUS)
-	@ar rcs $(NAME) $(OBJ_BONUS)
+#$(NAME2): $(OBJ_BONUS)
+#	ar rcs $(NAME) $(OBJ_BONUS)
 
 $(OBJ_BONUS): $(FILES) $(F_BONUS)
-	@gcc $(FLAGS) -c $(FILES) $(F_BONUS)
+	gcc $(FLAGS) -c $(F_BONUS)
+	ar rcs $(NAME) $(OBJ_BONUS)
 
 clean:
-	@rm -f $(OBJECTS) $(OBJ_BONUS)
+	rm -f $(OBJECTS) $(OBJ_BONUS)
 
-fclean:
-	@rm -f $(NAME) $(OBJ_BONUS)
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 

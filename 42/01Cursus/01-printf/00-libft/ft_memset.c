@@ -6,12 +6,12 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:39:21 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/25 13:24:53 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:29:22 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 void	*ft_memset(void *str, int c, unsigned int n)
 {
