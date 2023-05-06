@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/05 19:05:05 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/06 20:40:44 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ FILES = ft_atoi.c\
 		ft_memmove.c\
 		ft_memset.c\
 		ft_putchar_fd.c\
-		ft_putchar.c\
-		ft_putend_fd.c\
+		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_putstr_fd.c\
 		ft_split.c\
@@ -46,9 +45,8 @@ FILES = ft_atoi.c\
 		ft_strtrim.c\
 		ft_substr.c\
 		ft_tolower.c\
-		ft_toupper.c
-
-F_BONUS = ft_lstadd_back.c\
+		ft_toupper.c\
+		ft_lstadd_back.c\
 		ft_lstadd_front.c\
 		ft_lstclear.c\
 		ft_lstdelone.c\
@@ -61,8 +59,6 @@ F_BONUS = ft_lstadd_back.c\
 
 OBJECTS = $(FILES:.c=.o)
 
-OBJ_BONUS = $(F_BONUS:.c=.o)
-
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -73,17 +69,8 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): $(FILES)
 	gcc $(FLAGS) -c $(FILES)
 
-bonus: all $(OBJ_BONUS)
-
-#$(NAME2): $(OBJ_BONUS)
-#	ar rcs $(NAME) $(OBJ_BONUS)
-
-$(OBJ_BONUS): $(FILES) $(F_BONUS)
-	gcc $(FLAGS) -c $(F_BONUS)
-	ar rcs $(NAME) $(OBJ_BONUS)
-
 clean:
-	rm -f $(OBJECTS) $(OBJ_BONUS)
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)

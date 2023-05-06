@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:23:08 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/05 21:40:15 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/06 22:43:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	put_char(int c)
 {
-	write(1, &c, 1);
+	ft_putchar_fd(c, 1);
 	return (1);
 }
 
@@ -62,7 +62,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_putchar_fd(str[i], 1);
 			count++;
 		}
 		i++;

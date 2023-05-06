@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/05 19:05:05 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/06 20:41:20 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ FILES = ft_atoi.c\
 		ft_memmove.c\
 		ft_memset.c\
 		ft_putchar_fd.c\
-		ft_putchar.c\
-		ft_putend_fd.c\
+		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_putstr_fd.c\
 		ft_split.c\
@@ -73,14 +72,11 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): $(FILES)
 	gcc $(FLAGS) -c $(FILES)
 
-bonus: all $(OBJ_BONUS)
+bonus: $(OBJECTS) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJECTS) $(OBJ_BONUS)
 
-#$(NAME2): $(OBJ_BONUS)
-#	ar rcs $(NAME) $(OBJ_BONUS)
-
-$(OBJ_BONUS): $(FILES) $(F_BONUS)
+$(OBJ_BONUS): $(F_BONUS)
 	gcc $(FLAGS) -c $(F_BONUS)
-	ar rcs $(NAME) $(OBJ_BONUS)
 
 clean:
 	rm -f $(OBJECTS) $(OBJ_BONUS)

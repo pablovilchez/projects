@@ -1,0 +1,167 @@
+ATOI			int ft_atoi(const char *str)
+	Para convertir una cadena de caracteres en un entero.
+	return: el entero.
+
+BZERO			void ft_bzero(void *s, size_t n)
+	Recorre el vector (casteado a str) y pone todo valor '\0'
+
+CALLOC			void *ft_calloc(size_t number, size_t size)
+	Reserva espacio en memoria para un vector de un tipo de dato.
+
+ISALNUM			int ft_isalnum(char c)
+	Comprueba si el carácter recibido es una letra o un número.
+	return: '1' si lo es, '0' si no lo es.
+
+ISALPHA			int ft_isalpha(int c)
+	Comprueba si el carácter recibido es una letra.
+	return: '1' si lo es, '0' si no lo es.
+
+ISASCII			int ft_isascii(int c)
+	Comprueba si el carácter recibido está en la tabla ascii.
+	return: '1' si está, '0' si no está.
+
+ISDIGIT			int	ft_isdigit(int c)
+	Comprueba si el carácter recibido es un número.
+	return: '1' si lo es, '0' si no lo es.
+
+ISPRINT			int ft_isprint(int c)
+	Comprueba si el carácter recibido es imprimible de ascii.
+	return: '1' si lo es, '0' si no lo es.
+
+ITOA			char *ft_itoa(int n)
+	Para convertir un entero en una cadena de caracteres.
+	return: puntero a la cadena de caracteres creada.
+
+
+
+PUTCHAR_FD		void ft_putchar_fd(char c, int fd)
+	Guarda en un archivo o muestra por pantalla un carácter.
+
+PUTSTR_FD		void ft_putstr_fd(char *s, int fd)
+	Guarda en un archivo o muestra por pantalla una cadena de caracteres.
+
+PUTNBR_FD		void ft_putnbr_fd(int n, int fd)
+	Guarda en un archivo o muestra por pantalla un entero.
+
+PUTENDL_FD		void ft_putendl_fd(char *s, int fd)
+	Guarda en un archivo o muestra por pantalla un salto de linea.
+
+
+SPLIT			char **ft_split(char const *s, char c)
+	Corta una cadena de caracteres a partir de un carácter indicado.
+	return: puntero a la matriz de cadenas de caracteres.
+
+
+STRCHR			char *ft_strchr(const char *str, int c)
+	Busca la primera coincidencia de un carácter en una cadena.
+	return: un puntero a la posición, o NULL si no lo encuentra.
+
+STRDUP			char *ft_strdup(const char *s)
+	Crea una copia de una cadena de caracteres.
+	return: puntero a la nueva cadena creada.
+
+STRITERI		void ft_striteri(char *s, void (*f)(unsigned int, char*))
+	Recorre una cadena de caracteres aplicando a cada posición la función (*f).
+
+STRJOIN			char *ft_strjoin(const char *s1, const char *s2)
+	Concatena dos cadenas de caracteres en una nueva.
+	return: puntero a la nueva cadena creada.
+
+STRLCAT			size_t ft_strlcat(char *dst, char *src, size_t size)
+	Concatena una cadena de caracteres al final de una de destino.
+	return: numero de caracteres de la cadena de destino tras la acción.
+
+STRLCPY			size_t ft_strlcpy(char *dst, char *src, size_t size)
+	Copia segura de una cadena de caracteres.
+	return: tamaño de la cadena origen.
+
+STRLEN			size_t ft_strlen(const char *str)
+	Para calcular el tamaño de una cadena de caracteres.
+	return: tamaño de la cadena (sin '\0').
+
+STRMAPI			char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+	Crea una nueva cadena a partir de otra, aplicándole la función (*f) a cada carácter.
+
+STRNCPM			int ft_strncmp(const char *str1, const char *str2, size_t n)
+	Compara dos cadenas hasta un número de caracteres.
+	return: entero positivo, negativo o cero, según sea la primera mayor, menor o igual.
+
+STRNSTR			char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+	Busca coincidencia de parte de una cadena en otra.
+	return: puntero al comienzo de la coincidencia, o NULL.
+
+STRRCHR			char *ft_strrchr(const char *str, int c)
+	Busca la última aparición de un carácter en una cadena.
+	return: posición de última coincidencia, o NULL.
+
+STRTRIM			char *ft_strtrim(char const *s1, char const *set)
+	Crea una cadena a partir de otra, quitando una lista de caracteres del principio y del final.
+	return: puntero a cadena creada.
+
+SUBSTR			char *ft_substr(const char *src, unsigned int start, size_t len)
+	Crea una cadena a partir de otra, indicando posición de inicio y cantidad de caracteres.
+	return: puntero a cadena creada.
+
+
+TOLOWER			int ft_tolower(int ch)
+	Cambia el carácter dado a minúscula.
+	return: entero a posición ascii.
+
+TOUPPER			int ft_toupper(int ch)
+	Cambia el carácter dado a mayúscula.
+	return: entero a posición ascii.
+
+
+
+MEMCHR			void *ft_memchr(const void *str, int c, size_t n)
+	Busca la primera aparición de un carácter en una cadena.
+	return: puntero a la posición, o '0' si no lo encuentra.
+
+MEMCMP			int ft_memcmp(const void *s1, const void *s2, size_t n)
+	Compara dos cadenas (casteadas) hasta un número de caracteres.
+	return: entero positivo, negativo o cero, según sea la primera mayor, menor o igual.
+
+MEMCPY			void *ft_memcpy(void *dest, const void *src, size_t n)
+	Copia una cantidad de memoria en otro espacio.
+	return: puntero al espacio de destino.
+
+MEMMOVE			void *ft_memmove(void *dest, const void *src, size_t n)
+	Igual que MEMCPY pero con la seguridad de que no haya solapamiento.
+	return: puntero al espacio de destino.
+
+MEMSET			void *ft_memset(void *str, int c, unsigned int n)
+	Copia un caracter concreto, un número de veces en la dirección indicada.
+	return: puntero al espacio de destino.
+
+
+
+LSTNEW			t_list *ft_lstnew(void *content)
+	Crea un nuevo nodo con un contenido recibido.
+	return: puntero al nodo creado.
+
+LSTLAST			t_list *ft_lstlast(t_list *lst)
+	Busca el último nodo.
+	return: puntero al último nodo.
+
+LSTSIZE			int ft_lstsize(t_list *lst)
+	Averiguar el tamaño de la estructura de nodos.
+	return: número de nodos.
+
+LSTADD_FRONT	void ft_lstadd_front(t_list **lst, t_list *new)
+	Añade un nuevo nodo al principio.
+
+LSTADD_BACK		void ft_lstadd_back(t_list **lst, t_list *new)
+	Añade un nuevo nodo al final.
+
+LSTDELONE		void ft_lstdelone(t_list *lst, void (*del)(void*))
+	Aplica la función de eliminado (*del) y elimina el nodo indicado.
+
+LSTCLEAR		void ft_lstclear(t_list **lst, void (*del)(void*))
+	Elimina todos los nodos.
+
+LSTITER			void ft_lstiter(t_list *lst, void (*f)(void *))
+	Aplica la función (*f) a todos los nodos a partir del indicado.
+
+LSTMAP			t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+	Crea una nueva cadena de nodos a partir de otra, aplicándo la función (*f) a cada uno.
+	return: puntero al primer elemento de la nueva estructura de nodos.
