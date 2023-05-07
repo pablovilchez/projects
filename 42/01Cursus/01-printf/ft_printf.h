@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:27:01 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/05 21:41:06 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/07 13:47:51 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 char	*ft_itoa_long(long n);
 int		ft_printf(const char *str, ...);
 size_t	print_hex_cap(unsigned int nbr);
+size_t	print_hex_long(unsigned long long nbr);
 size_t	print_hex(unsigned int nbr);
 size_t	print_int(int nbr);
 size_t	print_str(char *str);
 size_t	print_unsig_int(unsigned int nbr);
-size_t	print_void(unsigned long long p);
+size_t	print_void(void *p);
 
 #endif

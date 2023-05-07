@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsig_int.c                                  :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 19:41:57 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 11:28:37 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/07 15:02:53 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/07 15:04:51 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-size_t	print_unsig_int(unsigned int nbr)
-{
-	size_t	count;
-	char	*str;
+char	*get_next_line(int fd);
 
-	count = 0;
-	str = ft_itoa_long((long)nbr);
-	count = print_str(str);
-	free (str);
-	return (count);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 19:59:41 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/06 22:49:28 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/07 13:50:06 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	phex(unsigned int nbr, size_t *p)
 	size_t	i;
 	char	*alpha;
 
-	alpha = "01123456789abcdef";
-	while (nbr > 16)
+	alpha = "0123456789abcdef";
+	if (nbr >= 16)
 		phex(nbr / 16, p);
-	i = (nbr % 16) - 1;
+	i = (nbr % 16);
 	ft_putchar_fd(alpha[i], 1);
 	*p = *p + 1;
 }

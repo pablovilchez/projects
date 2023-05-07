@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 19:36:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/04 21:41:31 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:01:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 size_t	print_int(int nbr)
 {
 	size_t	count;
+	char	*str;
 
 	count = 0;
-	count = print_str(ft_itoa(nbr));
+	str = ft_itoa(nbr);
+	count = print_str(str);
+	free (str);
 	return (count);
 }

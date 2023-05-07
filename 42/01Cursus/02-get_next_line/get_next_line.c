@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   z_main.c                                           :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/29 17:39:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 09:07:10 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/07 15:02:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "get_next_line.h"
 
-int	main(void)
+char	*get_next_line(int fd)
 {
-	const char	*str = "ho%ila\n";
-	const char	*str2 = "ho%ila\n";
-	int			res;
 
-	ft_printf("hola %i %c\n", 12, 's');
-	return (0);
 }

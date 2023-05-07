@@ -34,5 +34,8 @@ int	main(void)
 	p = &entero;
 	printf("%p\n", p);
 
+	printf("%p\n", "");
+	printf("%p\n", "hola");
+	printf("%p\n", "j");
 	return (0);
 }

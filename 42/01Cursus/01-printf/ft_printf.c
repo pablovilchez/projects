@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 23:23:08 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/06 22:43:32 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:55:26 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	cast(const char *str, size_t i, va_list arg)
 	else if (str[i] == 's')
 		count += print_str(va_arg(arg, char *));
 	else if (str[i] == 'p')
-		count += print_void((unsigned long long)va_arg(arg, void *));
+		count += print_void(va_arg(arg, void *));
 	else if (str[i] == 'd')
 		count += print_int(va_arg(arg, int));
 	else if (str[i] == 'i')

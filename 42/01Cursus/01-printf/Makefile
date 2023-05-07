@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 23:27:09 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/06 23:03:15 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/07 12:12:56 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libftprintf.a
 FILES = ft_itoa_long.c\
 		ft_printf.c\
 		print_hex_cap.c\
+		print_hex_long.c\
 		print_hex.c\
 		print_int.c\
 		print_str.c\
