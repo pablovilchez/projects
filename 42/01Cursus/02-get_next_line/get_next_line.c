@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 15:02:13 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:03:30 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 char	*get_next_line(int fd)
 {
-
+	static char	*static_var;
+	
 }
