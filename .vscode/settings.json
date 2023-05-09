@@ -5,6 +5,7 @@
         "stdio.h": "c",
         "libftprintf.h": "c",
         "unistd.h": "c",
-        "ft_printf.h": "c"
+        "ft_printf.h": "c",
+        "stdlib.h": "c"
     }
 }
