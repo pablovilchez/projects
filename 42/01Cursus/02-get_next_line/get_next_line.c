@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/09 23:14:00 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/12 11:28:44 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*file_to_buffer(int fd, char *stack)
 		stack = ft_calloc(1, sizeof(char));
 	num_bytes = 1;
 	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-	
+	buffer = 
 }
 
 char	*buffer_to_line(char *str)
