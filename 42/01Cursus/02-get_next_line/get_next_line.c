@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/12 11:28:44 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/12 13:43:05 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,44 @@
 
 #define BUFFER_SIZE 5
 
-char	*file_to_buffer(int fd, char *stack)
+char	*buffer_to_static(char *static_str, char *buffer)
+{
+	char	*str_aux;
+
+	str_aux = static_str;
+	free(static_str);
+	static_str = ft_strjoin(static_str, buffer);
+	return (static_str);
+}
+
+char	*file_to_static(int fd, char *static_str)
 {
 	int		num_bytes;
 	char	*buffer;
 
-	if (!stack)
-		stack = ft_calloc(1, sizeof(char));
+	if (!static_str)
+		static_str = ft_calloc(1, sizeof(char));
 	num_bytes = 1;
 	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-	buffer = 
-}
-
-char	*buffer_to_line(char *str)
-{
-
+	while (num_bytes > 0)
+	{
+		if (read(fd, 0, 0) == -1)
+		{
+			return (0);
+		}
+		num_bytes = read(fd, buffer, BUFFER_SIZE);
+		buffer[num_bytes] = '\0';
+		static_str = buffer_to_static(static_str, buffer);
+	}
+	free(buffer);
+	return (static_str);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	static_str[BUFFER_SIZE + 1];
-	char		*line_str;
+	static char	*static_str;
+	char		*line;
 
-
-}
-
-int	main(void)
-{
-	int		file;
-	char	*line_str;
-
-	file = open("texto.txt", O_RDONLY);
-	if (file < 0)
-	{
-		printf("Error opening file.\n");
-		return (1);
-	}
-	line_str = get_next_line(file);
-	while (line_str != NULL)
-	{
-		printf("%s\n", line_str);
-		free(line_str);
-		line_str = get_next_line(file);
-	}
-	close(file);
-	return (0);
+	static_str = file_to_static(fd, static_str);
+	return (line);
 }
