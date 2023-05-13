@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:13:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/12 13:33:19 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/13 22:12:49 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,62 @@ void	*ft_calloc(size_t number, size_t size)
 	return (0);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	if (!n || dest == src)
+		return (dest);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (d);
+}
+
+char	*ft_strjoin_endline(char *str, char *buffer)
 {
 	char	*dest;
 
-	dest = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
+	if (str == NULL || buffer == NULL)
+		return (NULL);
+	dest = ft_calloc((len_end(str) + len_end(buffer) + 1), sizeof(char));
 	if (dest == NULL)
 		return (NULL);
-	dest = ft_memcpy(dest, s1, ft_strlen(s1));
-	ft_memcpy(&dest[ft_strlen(s1)], s2, ft_strlen(s2));
+	dest = ft_memcpy(dest, str, len_end(str));
+	ft_memcpy(&dest[len_end(str)], buffer, len_end(buffer));
+	free(str);
 	return (dest);
+}
+
+size_t	len_end(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(str + i) != '\0' && *(str + i) != '\n')
+	{
+		i++;
+	}
+	if (*(str + i) == '\n')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
