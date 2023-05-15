@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:02:53 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/13 18:48:15 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/14 00:55:23 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
+void	*ft_calloc(size_t number, size_t size);
 char	*extra_data(char *static_str);
 char	*line_to_print(char *static_str, char *line);
 void	*ft_calloc(size_t number, size_t size);

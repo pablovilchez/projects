@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:13:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/13 22:12:49 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/14 02:06:39 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ size_t	len_end(const char *str)
 
 	i = 0;
 	while (*(str + i) != '\0' && *(str + i) != '\n')
-	{
 		i++;
-	}
 	if (*(str + i) == '\n')
 		i++;
 	return (i);
@@ -85,8 +83,6 @@ size_t	ft_strlen(const char *str)
 
 	i = 0;
 	while (*(str + i) != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

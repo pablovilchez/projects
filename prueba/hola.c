@@ -1,41 +1,33 @@
 #include <stdio.h>
-#include <stdarg.h>
 
-void	printint(int num, ...)
+size_t	ft_strlen(const char *str)
 {
-	va_list	arg;
+	size_t	i;
 
-	va_start(arg, num);
-	while (num > 0)
-	{
-		printf ("%i", va_arg(arg, int));
-		num--;
-	}
-	va_end(arg);
+	i = 0;
+	while (*(str + i) != '\0')
+		i++;
+	return (i);
+}
+
+size_t	len_end(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(str + i) != '\0' && *(str + i) != '\n')
+		i++;
+	if (*(str + i) == '\n')
+		i++;
+	return (i);
 }
 
 int	main(void)
 {
 	char	*str;
-	float	num;
-	int		i;
-	int		*p;
-	int		entero;
 
-	str = "Pablo";
-	num = 10.4;
-	printf("hola %s buenas noches %f", str, 21.4);
-	i = printf("\n");
-
-	printint(3, 1, 2, 3);
-	printf("\n");
-
-	entero = 123;
-	p = &entero;
-	printf("%p\n", p);
-
-	printf("%p\n", "");
-	printf("%p\n", "hola");
-	printf("%p\n", "j");
+	str = "Pab\nlo";
+	printf("%i\n", (int)len_end(str));
+	printf("%i\n", (int)ft_strlen(str));
 	return (0);
 }
