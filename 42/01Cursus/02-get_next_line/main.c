@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:36:19 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/16 14:20:21 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:34:03 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int		file;
 	char	*line_str;
 
-	file = open("read_error.txt", O_RDONLY);
+	file = open("texto.txt", O_RDONLY);
 	if (file < 0)
 	{
 		printf("Error opening file.\n");
