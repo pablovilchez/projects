@@ -1,3 +1,0 @@
-esto es un archivo
-que prueba la impresión
-de texto en pantalla.

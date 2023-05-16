@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:13:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/15 20:01:28 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:09:59 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,43 @@ void	*ft_calloc(size_t number, size_t size)
 	size_t			i;
 
 	c = (unsigned char *)malloc(number * size);
-	if (c != NULL)
+	if (!c)
+		return (0);
+	i = 0;
+	while (i < (number * size))
 	{
-		i = 0;
-		while (i < (number * size))
-		{
-			c[i] = 0;
-			i++;
-		}
-		return (c);
+		c[i] = 0;
+		i++;
 	}
-	return (0);
+	return (c);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;
+	size_t	i;
+	size_t	j;
 
-	if (s1 == NULL || s2 == NULL || s2[0] == '\0')
+	if (!s1 || !s2 || s2[0] == '\0')
 		return (NULL);
 	dest = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (dest == NULL)
-		return (NULL);
-	ft_memcpy(dest, s1, ft_strlen(s1));
-	ft_memcpy(&dest[ft_strlen(s1)], s2, ft_strlen(s2));
-	free(s1);
+		return (0);
+	i = 0;
+	j = 0;
+	while (s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		dest[i] = s2[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	free (s1);
 	return (dest);
 }
 

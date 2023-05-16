@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/15 21:55:12 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:06:42 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ size_t	find_nl(char *str)
 
 	i = 0;
 	found = 0;
-	while (str[i])
+	if (str)
 	{
-		if (str[i] == '\n')
-			found = 1;
-		i++;
+		while (str[i] && found == 0)
+		{
+			if (str[i] == '\n')
+				found = 1;
+			i++;
+		}
 	}
 	return (found);
 }
@@ -49,10 +52,7 @@ char	*extra_data(char *static_str)
 		aux = &static_str[count_nl(static_str)];
 		str_aux = (char *)ft_memcpy(str_aux, aux, len);
 	}
-	else
-		str_aux = static_str;
-	if (static_str != NULL && static_str[0] != '\0')
-		free(static_str);
+	free(static_str);
 	return (str_aux);
 }
 
@@ -60,11 +60,13 @@ char	*line_to_print(char *static_str, char *line)
 {
 	size_t	len;
 
+	if (static_str == NULL)
+		return (0);
 	if (find_nl(static_str) == 1)
 		len = count_nl(static_str);
 	else
 		len = ft_strlen(static_str);
-	line = (char *)ft_calloc(len + 1, sizeof(char));
+	line = (char *)ft_calloc(len + 2, sizeof(char));
 	if (line == NULL)
 		return (NULL);
 	ft_memcpy(line, static_str, len);
@@ -78,25 +80,24 @@ char	*file_to_static(int fd, char *static_str)
 	char	*buffer;
 
 	num_bytes = 1;
+	if (!static_str)
+		static_str = (char *)ft_calloc(1, sizeof(char));
 	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	while (num_bytes > 0)
 	{
-		if (read(fd, 0, 0) == -1)
-		{
-			free(static_str);
-			free(buffer);
-			return (NULL);
-		}
-		if (static_str)
-		{
-			if (find_nl(static_str) == 1)
-				break ;
-		}
+		if (read(fd, 0, 0) == -1 || find_nl(static_str) == 1)
+			break ;
 		num_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[num_bytes] = '\0';
-		static_str = ft_strjoin(static_str, buffer);
+		if (buffer[0] != '\0')
+			static_str = ft_strjoin(static_str, buffer);
 	}
 	free(buffer);
+	if (static_str && static_str[0] == 0)
+	{
+		free(static_str);
+		return (NULL);
+	}
 	return (static_str);
 }
 
@@ -106,14 +107,11 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = NULL;
-	if (!(fd >= 0 && BUFFER_SIZE > 0) || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		if (static_str != NULL)
-			free(static_str);
+		free(static_str);
 		return (0);
 	}
-	if (!static_str)
-		static_str = (char *)ft_calloc(1, sizeof(char));
 	static_str = file_to_static(fd, static_str);
 	line = line_to_print(static_str, line);
 	static_str = extra_data(static_str);
