@@ -6,6 +6,7 @@
         "libftprintf.h": "c",
         "unistd.h": "c",
         "ft_printf.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "libftpushswap.h": "c"
     }
 }
