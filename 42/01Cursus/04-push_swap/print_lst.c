@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpushswap.h                                    :+:      :+:    :+:   */
+/*   print_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 20:11:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/21 23:34:49 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/21 22:41:00 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/21 23:34:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPUSHSWAP_H
-# define LIBFTPUSHSWAP_H
+#include "libftpushswap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-typedef struct n_list
+void	print_lst(t_node **lst)
 {
-	int				num;
-	struct n_list	*next;
-}					t_node;
-void	push_swap(t_node **lst_a, t_node **lst_b);
-void	print_lst(t_node **lst);
-t_node	*lst_new(int num);
-int	lst_size(t_node *lst);
-t_node	*lst_last(t_node *lst);
+	t_node	*pos;
 
+	pos = *lst;
+	while (pos->next)
+	{
+		pos = pos->next;
+	}
+}
 
-#endif
+void	print_2list(t_node **lst_a, t_node **lst_b)
+{
+	t_node	*pos_a;
+	t_node	*pos_b;
+
+	pos_a = *lst_a;
+	pos_b = *lst_b;
+	while (pos_a->next)
+	{
+		pos_a = pos_a->next;
+	}
+}
