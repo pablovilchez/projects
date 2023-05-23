@@ -6,15 +6,14 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 20:09:10 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/21 23:34:42 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/23 21:38:03 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftpushswap.a
 
-FILES = main.c push_swap.c print_lst.c\
-		act_push.c act_rev.c act_rotate.c act_swap.c\
-		lst_funct_01.c
+FILES = lst_print.c push_swap.c lst_funct_01.c lst_funct_02.c\
+		act_rotate.c act_swap.c
 
 OBJECTS = $(FILES:.c=.o)
 

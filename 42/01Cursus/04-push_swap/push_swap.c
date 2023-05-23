@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:18:02 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/21 23:28:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:37:08 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	push_swap(t_node **lst_a, t_node **lst_b)
 {
-	print_lst(lst_a);
-	print_lst(lst_b);
+	lst_print(lst_a);
+	printf("\n");
+	rotate(lst_a);
+	lst_print(lst_a);
+	swap(lst_a);
+	lst_print(lst_a);
+	rotate(lst_b);
 }

@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/06 20:40:44 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/05/06 20:41:20 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,9 @@ FILES = ft_atoi.c\
 		ft_strtrim.c\
 		ft_substr.c\
 		ft_tolower.c\
-		ft_toupper.c\
-		ft_lstadd_back.c\
+		ft_toupper.c
+
+F_BONUS = ft_lstadd_back.c\
 		ft_lstadd_front.c\
 		ft_lstclear.c\
 		ft_lstdelone.c\
@@ -59,6 +60,8 @@ FILES = ft_atoi.c\
 
 OBJECTS = $(FILES:.c=.o)
 
+OBJ_BONUS = $(F_BONUS:.c=.o)
+
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -69,8 +72,14 @@ $(NAME): $(OBJECTS)
 $(OBJECTS): $(FILES)
 	gcc $(FLAGS) -c $(FILES)
 
+bonus: $(OBJECTS) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJECTS) $(OBJ_BONUS)
+
+$(OBJ_BONUS): $(F_BONUS)
+	gcc $(FLAGS) -c $(F_BONUS)
+
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
