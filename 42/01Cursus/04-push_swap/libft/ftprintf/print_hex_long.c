@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_hex_long.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 23:18:02 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/29 01:41:43 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/07 12:09:22 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/07 13:49:35 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftpushswap.h"
+#include "ft_printf.h"
 
-void	push_swap(t_node **lst_a, t_node **lst_b)
+void	phex_long(unsigned long long nbr, size_t *p)
 {
-	lst_print(lst_a, lst_b);
-	printf("\n");
-	rotate(lst_a, lst_b, 'a');
-	lst_print(lst_a, lst_b);
-	printf("\n");
-	swap(lst_a, lst_b, 'a');
-	lst_print(lst_a, lst_b);
-	push(lst_a, lst_b, 'b');
-	lst_print(lst_a, lst_b);
-	push(lst_a, lst_b, 'b');
-	lst_print(lst_a, lst_b);
-	rotate(lst_a, lst_b, 'r');
-	lst_print(lst_a, lst_b);
+	size_t	i;
+	char	*alpha;
+
+	alpha = "0123456789abcdef";
+	if (nbr >= 16)
+		phex_long(nbr / 16, p);
+	i = (nbr % 16);
+	ft_putchar_fd(alpha[i], 1);
+	*p = *p + 1;
+}
+
+size_t	print_hex_long(unsigned long long nbr)
+{
+	size_t	count;
+	size_t	*p;
+
+	count = 0;
+	p = &count;
+	phex_long(nbr, p);
+	return (count);
 }

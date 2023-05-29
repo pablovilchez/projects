@@ -6,32 +6,66 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:22:44 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/23 21:38:05 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/29 04:47:30 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftpushswap.h"
 
-int	main(void)
+size_t	error_memory(t_node **lst_a, t_node **lst_b)
+{
+	size_t	error;
+
+	error = 0;
+	if (!lst_a)
+		error = 1;
+	if (!lst_b)
+	{
+		ft_lstclear(lst_a);
+		error = 1;
+	}
+	if (error == 1)
+		printf("Memory allocation error. Abort.\n");
+	return (error);
+}
+
+t_node	**create_lst(t_node **lst, int argc, char *argv[])
+{
+	t_node	*aux;
+	size_t	i;
+
+	i = 1;
+	lst = ft_calloc(1, sizeof(t_node *));
+	while (i < argc)
+	{
+		aux = ft_lstnew(ft_atoi(argv[i]));
+		if (!aux)
+			return (NULL);
+		if (i == 1)
+			ft_lstadd_front(lst, aux);
+		else
+			ft_lstadd_back(lst, aux);
+		i++;
+	}	
+	return (lst);
+}
+
+int	main(int argc, char *argv[])
 {
 	t_node	**lst_a;
 	t_node	**lst_b;
-	t_node	*aux;
 
-	lst_a = calloc(2, sizeof(t_node *));
-	lst_b = calloc(2, sizeof(t_node *));
-	aux = lst_new(5);
-	lst_add_front(lst_a, aux);
-	aux = lst_new(8);
-	lst_add_back(lst_a, aux);
-	aux = lst_new(1);
-	lst_add_back(lst_a, aux);
-	aux = lst_new(4);
-	lst_add_back(lst_a, aux);
-	aux = lst_new(3);
-	lst_add_back(lst_a, aux);
+	if (error_args(argc, argv))
+		return (0);
+	lst_a = create_lst(lst_a, argc, argv);
+	lst_b = ft_calloc(1, sizeof(t_node *));
+	if (error_memory(lst_a, lst_b))
+	{
+		printf ("Error en asignación de memoria\n");
+		return (0);
+	}
 	push_swap(lst_a, lst_b);
-	lst_clear(lst_a);
-	lst_clear(lst_b);
+	ft_lstclear(lst_a);
+	ft_lstclear(lst_b);
 	return (0);
 }

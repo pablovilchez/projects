@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 23:18:02 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/29 01:41:43 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/04 19:36:18 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/05/07 12:01:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftpushswap.h"
+#include "ft_printf.h"
 
-void	push_swap(t_node **lst_a, t_node **lst_b)
+size_t	print_int(int nbr)
 {
-	lst_print(lst_a, lst_b);
-	printf("\n");
-	rotate(lst_a, lst_b, 'a');
-	lst_print(lst_a, lst_b);
-	printf("\n");
-	swap(lst_a, lst_b, 'a');
-	lst_print(lst_a, lst_b);
-	push(lst_a, lst_b, 'b');
-	lst_print(lst_a, lst_b);
-	push(lst_a, lst_b, 'b');
-	lst_print(lst_a, lst_b);
-	rotate(lst_a, lst_b, 'r');
-	lst_print(lst_a, lst_b);
+	size_t	count;
+	char	*str;
+
+	count = 0;
+	str = ft_itoa(nbr);
+	count = print_str(str);
+	free (str);
+	return (count);
 }

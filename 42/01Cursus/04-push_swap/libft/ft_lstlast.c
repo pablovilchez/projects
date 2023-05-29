@@ -6,13 +6,13 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 23:20:12 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/04/26 23:44:43 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/05/29 03:58:18 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_node *lst)
 {
 	if (lst)
 	{
