@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:22:44 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/29 04:47:30 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/01 20:16:45 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ size_t	error_memory(t_node **lst_a, t_node **lst_b)
 		ft_lstclear(lst_a);
 		error = 1;
 	}
-	if (error == 1)
-		printf("Memory allocation error. Abort.\n");
 	return (error);
 }
 
@@ -36,7 +34,7 @@ t_node	**create_lst(t_node **lst, int argc, char *argv[])
 
 	i = 1;
 	lst = ft_calloc(1, sizeof(t_node *));
-	while (i < argc)
+	while (i < (size_t)argc)
 	{
 		aux = ft_lstnew(ft_atoi(argv[i]));
 		if (!aux)
@@ -55,13 +53,17 @@ int	main(int argc, char *argv[])
 	t_node	**lst_a;
 	t_node	**lst_b;
 
+	lst_a = NULL;
 	if (error_args(argc, argv))
+	{
+		ft_printf ("Error\n");
 		return (0);
+	}
 	lst_a = create_lst(lst_a, argc, argv);
 	lst_b = ft_calloc(1, sizeof(t_node *));
 	if (error_memory(lst_a, lst_b))
 	{
-		printf ("Error en asignación de memoria\n");
+		ft_printf ("Error\n");
 		return (0);
 	}
 	push_swap(lst_a, lst_b);
