@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:53:30 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/01 17:51:33 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/02 19:55:57 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,17 +101,17 @@ int	error_args(int argc, char *argv[])
 {
 	if (check_digit(argc, argv) == 1)
 	{
-		ft_printf("Elemento no numérico, o insuficientes parámetros.\n");
+		//ft_printf("Elemento no numérico, o insuficientes parámetros.\n");
 		return (1);
 	}
 	if (check_int(argc, argv) == 1)
 	{
-		ft_printf("Entero no válido.\n");
+		//ft_printf("Entero no válido.\n");
 		return (1);
 	}
 	if (check_doubles(argc, argv) == 1)
 	{
-		ft_printf("Elemento duplicado.\n");
+		//ft_printf("Elemento duplicado.\n");
 		return (1);
 	}
 	return (0);

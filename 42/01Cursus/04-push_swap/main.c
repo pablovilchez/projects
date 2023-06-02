@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:22:44 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/01 20:16:45 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:04:40 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int argc, char *argv[])
 	lst_b = ft_calloc(1, sizeof(t_node *));
 	if (error_memory(lst_a, lst_b))
 	{
-		ft_printf ("Error\n");
+		ft_printf ("Error");
 		return (0);
 	}
 	push_swap(lst_a, lst_b);
