@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 12:36:19 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/22 21:31:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/02 18:48:55 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,28 @@
 
 int	main(void)
 {
-	int		file[2];
-	char	*line_str;
+	int		file;
+/* 	char	*line_str; */
 
-	file[0] = open("texto.txt", O_RDONLY);
-	file[1] = open("tex.txt", O_RDONLY);
+
+ 	file = open("texto.txt", O_RDONLY);
 	if (file < 0)
 	{
 		printf("Error opening file.\n");
 		return (1);
 	}
-	while (line_str != NULL)
+
+
+/* 	while (line_str != NULL)
 	{
 		line_str = get_next_line(file);
 		if (line_str != NULL)
 			printf("%s\n", line_str);
 		free(line_str);
-	}
+	} */
+
+	printf("%s", get_next_line(file));
 	close(file);
+	printf("%s", get_next_line(file));
 	return (0);
 }

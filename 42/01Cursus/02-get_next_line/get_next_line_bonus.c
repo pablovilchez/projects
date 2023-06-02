@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 23:38:00 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/16 23:47:51 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/02 19:14:23 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*file_to_static(int fd, char *static_str)
 
 char	*get_next_line(int fd)
 {
-	static char	*static_str[10240];
+	static char	*static_str[1024];
 	char		*line;
 
 	line = NULL;
