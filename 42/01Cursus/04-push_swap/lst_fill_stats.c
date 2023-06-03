@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 02:25:17 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/01 19:35:40 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:34:22 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,15 @@ void	lst_fill_stats(t_node **lst_a, t_node **lst_b)
 	while (node)
 	{
 		node->target_pos = fill_target(lst_a, node->index, size_a + size_b);
+		ft_printf("target: %i\n", node->target_pos);
 		node->cost_a = fill_cost(node->target_pos, size_a);
+		ft_printf("cost a: %i\n", node->cost_a);
 		node->cost_b = fill_cost(node->pos, size_b);
+		ft_printf("cost b: %i\n", node->cost_b);
 		node = node->next;
+		ft_printf("memory: %p\n\n", node);
+		ft_printf("target: %i\n", node->target_pos);
+		ft_printf("cost a: %i\n", node->cost_a);
+		ft_printf("cost b: %i\n", node->cost_b);
 	}
 }

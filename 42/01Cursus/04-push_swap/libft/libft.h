@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:57:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/29 05:57:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:34:55 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	ft_lstdelone(t_node *lst);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int num);
 int		ft_lstsize(t_node *lst);
+void	*free_all(char **matrix, size_t num);
 
 #endif

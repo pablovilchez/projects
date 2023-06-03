@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:53:30 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/02 19:55:57 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:02:23 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,22 +97,22 @@ size_t	check_digit(int argc, char *argv[])
 	return (0);
 }
 
-int	error_args(int argc, char *argv[])
+int	error_args(int argc, char *argv[], int two)
 {
+	int	error;
+
+	error = 0;
 	if (check_digit(argc, argv) == 1)
-	{
-		//ft_printf("Elemento no numérico, o insuficientes parámetros.\n");
-		return (1);
-	}
+		error = 1;
 	if (check_int(argc, argv) == 1)
-	{
-		//ft_printf("Entero no válido.\n");
-		return (1);
-	}
+		error = 1;
 	if (check_doubles(argc, argv) == 1)
+		error = 1;
+	if (error == 1)
 	{
-		//ft_printf("Elemento duplicado.\n");
-		return (1);
+		ft_printf("Error\n");
+		if (two == 1)
+			free_all(argv, argc);
 	}
-	return (0);
+	return (error);
 }
