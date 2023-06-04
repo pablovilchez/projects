@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/16 17:45:38 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:15:30 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 size_t	find_nl(char *str)
 {
-	size_t	i;
-	size_t	found;
-
-	i = 0;
-	found = 0;
-	if (str)
+	while (*str)
 	{
-		while (str[i] && found == 0)
-		{
-			if (str[i] == '\n')
-				found = 1;
-			i++;
-		}
+		if (*str == '\n')
+			return (1);
+		str++;
 	}
-	return (found);
+	return (0);
 }
 
 char	*extra_data(char *static_str)
@@ -79,14 +71,10 @@ char	*file_to_static(int fd, char *static_str)
 	int		num_bytes;
 	char	*buffer;
 
-	num_bytes = 1;
-	if (!static_str)
-		static_str = (char *)ft_calloc(1, sizeof(char));
 	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-	while (num_bytes > 0)
+	num_bytes = 1;
+	while (num_bytes > 0 && !(read(fd, 0, 0) == -1 || find_nl(static_str)))
 	{
-		if (read(fd, 0, 0) == -1 || find_nl(static_str) == 1)
-			break ;
 		num_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[num_bytes] = '\0';
 		if (buffer[0] != '\0')
@@ -107,11 +95,13 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = NULL;
+	if (!static_str)
+		static_str = (char *)ft_calloc(1, sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(static_str);
 		static_str = NULL;
-		return (0);
+		return (line);
 	}
 	static_str = file_to_static(fd, static_str);
 	line = line_to_print(static_str, line);
