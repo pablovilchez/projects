@@ -6,11 +6,27 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 02:25:17 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/03 20:34:22 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:31:28 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftpushswap.h"
+
+int	max_index(t_node **lst_a)
+{
+	t_node	*node;
+	int		max;
+
+	node = *lst_a;
+	max = node->index;
+	while (node)
+	{
+		if (node->index > max)
+			max = node->index;
+		node = node->next;
+	}
+	return (max);
+}
 
 int	fill_cost(int pos, int size)
 {
@@ -26,7 +42,7 @@ int	fill_cost(int pos, int size)
 		return (pos - size - 1);
 }
 
-int	fill_target(t_node **lst_a, int index, int total)
+int	fill_target(t_node **lst_a, int index)
 {
 	t_node	*node;
 	int		dif;
@@ -34,10 +50,11 @@ int	fill_target(t_node **lst_a, int index, int total)
 
 	dif = 1;
 	found = 0;
-	if (index == total)
+	if (index > max_index(lst_a))
 		index = 0;
 	while (found == 0)
 	{
+
 		node = *lst_a;
 		while (node && found == 0)
 		{
@@ -94,16 +111,9 @@ void	lst_fill_stats(t_node **lst_a, t_node **lst_b)
 	node = *lst_b;
 	while (node)
 	{
-		node->target_pos = fill_target(lst_a, node->index, size_a + size_b);
-		ft_printf("target: %i\n", node->target_pos);
+		node->target_pos = fill_target(lst_a, node->index);
 		node->cost_a = fill_cost(node->target_pos, size_a);
-		ft_printf("cost a: %i\n", node->cost_a);
 		node->cost_b = fill_cost(node->pos, size_b);
-		ft_printf("cost b: %i\n", node->cost_b);
 		node = node->next;
-		ft_printf("memory: %p\n\n", node);
-		ft_printf("target: %i\n", node->target_pos);
-		ft_printf("cost a: %i\n", node->cost_a);
-		ft_printf("cost b: %i\n", node->cost_b);
 	}
 }
