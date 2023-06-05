@@ -6,11 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 02:25:17 by pvilchez          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/05 19:31:28 by pvilchez         ###   ########.fr       */
-=======
-/*   Updated: 2023/06/02 19:52:57 by pvilchez         ###   ########.fr       */
->>>>>>> c690cecbf2a77021e9e10b3df3768fb94905552b
+/*   Updated: 2023/06/05 20:24:49 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +111,8 @@ void	lst_fill_stats(t_node **lst_a, t_node **lst_b)
 	node = *lst_b;
 	while (node)
 	{
-<<<<<<< HEAD
 		node->target_pos = fill_target(lst_a, node->index);
-=======
-		node->target_pos = fill_target(lst_a, node->index, size_a + size_b);
->>>>>>> c690cecbf2a77021e9e10b3df3768fb94905552b
+		node->target_pos = fill_target(lst_a, node->index);
 		node->cost_a = fill_cost(node->target_pos, size_a);
 		node->cost_b = fill_cost(node->pos, size_b);
 		node = node->next;
