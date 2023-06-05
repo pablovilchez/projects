@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/04 18:15:30 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/16 23:38:00 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/06/02 19:14:23 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	find_nl(char *str)
 {
-	while (*str)
+	size_t	i;
+	size_t	found;
+
+	i = 0;
+	found = 0;
+	if (str)
 	{
-		if (*str == '\n')
-			return (1);
-		str++;
+		while (str[i] && found == 0)
+		{
+			if (str[i] == '\n')
+				found = 1;
+			i++;
+		}
 	}
-	return (0);
+	return (found);
 }
 
 char	*extra_data(char *static_str)
@@ -71,10 +79,14 @@ char	*file_to_static(int fd, char *static_str)
 	int		num_bytes;
 	char	*buffer;
 
-	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	num_bytes = 1;
-	while (num_bytes > 0 && !(read(fd, 0, 0) == -1 || find_nl(static_str)))
+	if (!static_str)
+		static_str = (char *)ft_calloc(1, sizeof(char));
+	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+	while (num_bytes > 0)
 	{
+		if (read(fd, 0, 0) == -1 || find_nl(static_str) == 1)
+			break ;
 		num_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[num_bytes] = '\0';
 		if (buffer[0] != '\0')
@@ -91,20 +103,18 @@ char	*file_to_static(int fd, char *static_str)
 
 char	*get_next_line(int fd)
 {
-	static char	*static_str;
+	static char	*static_str[1024];
 	char		*line;
 
 	line = NULL;
-	if (!static_str)
-		static_str = (char *)ft_calloc(1, sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		free(static_str);
-		static_str = NULL;
-		return (line);
+		free(static_str[fd]);
+		static_str[fd] = NULL;
+		return (0);
 	}
-	static_str = file_to_static(fd, static_str);
-	line = line_to_print(static_str, line);
-	static_str = extra_data(static_str);
+	static_str[fd] = file_to_static(fd, static_str[fd]);
+	line = line_to_print(static_str[fd], line);
+	static_str[fd] = extra_data(static_str[fd]);
 	return (line);
 }

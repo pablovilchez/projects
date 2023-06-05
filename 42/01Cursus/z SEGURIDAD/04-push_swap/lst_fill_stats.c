@@ -6,31 +6,11 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 02:25:17 by pvilchez          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/05 19:31:28 by pvilchez         ###   ########.fr       */
-=======
 /*   Updated: 2023/06/02 19:52:57 by pvilchez         ###   ########.fr       */
->>>>>>> c690cecbf2a77021e9e10b3df3768fb94905552b
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftpushswap.h"
-
-int	max_index(t_node **lst_a)
-{
-	t_node	*node;
-	int		max;
-
-	node = *lst_a;
-	max = node->index;
-	while (node)
-	{
-		if (node->index > max)
-			max = node->index;
-		node = node->next;
-	}
-	return (max);
-}
 
 int	fill_cost(int pos, int size)
 {
@@ -46,7 +26,7 @@ int	fill_cost(int pos, int size)
 		return (pos - size - 1);
 }
 
-int	fill_target(t_node **lst_a, int index)
+int	fill_target(t_node **lst_a, int index, int total)
 {
 	t_node	*node;
 	int		dif;
@@ -54,11 +34,10 @@ int	fill_target(t_node **lst_a, int index)
 
 	dif = 1;
 	found = 0;
-	if (index > max_index(lst_a))
+	if (index == total)
 		index = 0;
 	while (found == 0)
 	{
-
 		node = *lst_a;
 		while (node && found == 0)
 		{
@@ -115,11 +94,7 @@ void	lst_fill_stats(t_node **lst_a, t_node **lst_b)
 	node = *lst_b;
 	while (node)
 	{
-<<<<<<< HEAD
-		node->target_pos = fill_target(lst_a, node->index);
-=======
 		node->target_pos = fill_target(lst_a, node->index, size_a + size_b);
->>>>>>> c690cecbf2a77021e9e10b3df3768fb94905552b
 		node->cost_a = fill_cost(node->target_pos, size_a);
 		node->cost_b = fill_cost(node->pos, size_b);
 		node = node->next;
