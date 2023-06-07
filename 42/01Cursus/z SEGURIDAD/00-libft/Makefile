@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/06/07 00:30:12 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/07 19:02:38 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,15 +27,17 @@ OBJ			= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 # Linkers
 LNK			= -Ofast
 # Se compila el archivo binario (ejecutable).
-all: obj
-	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando, espere unos segundos..."
-	@ar rcs $(NAME) $(OBJ_FILES)
-	@echo "(•̀ᴗ•́)و $(NAME) generado!"
+all: obj $(NAME)
 # Crea la carpeta donde estara los objetos.
 obj:
 	@mkdir -p $(OBJ_DIR)
-	$(OBJ_DIR)%.o:$(SRC_DIR)%.c
+$(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@gcc $(FLAGS) -I $(INC_DIR) -o $@ -c $<
+# Se compila los objetos con las librerias y archivos
+$(NAME): $(OBJ)
+	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando, espere unos segundos..."
+	@gcc $(OBJ) $(LNK) -lm -o $(NAME)
+	@echo "(•̀ᴗ•́)و $(NAME) generado!"
 # Remueve todos los archivos objetos
 clean:
 	@rm -Rf $(OBJ_DIR)

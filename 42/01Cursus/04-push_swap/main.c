@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:22:44 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/06 17:16:54 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:21:36 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	error_memory(t_node **lst_a, t_node **lst_b)
 		error = 1;
 	}
 	if (error == 1)
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 	return (error);
 }
 
