@@ -1,4 +1,4 @@
-# Nombre del programa
+# Nombre del programa final que se generará
 NAME       = <nombre>
 # Flags de compilacion
 FLAGS      = -Wall -Wextra -Werror -g -Ofast
