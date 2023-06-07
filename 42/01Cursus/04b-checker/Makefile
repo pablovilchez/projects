@@ -6,15 +6,13 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 20:09:10 by pvilchez          #+#    #+#              #
-#    Updated: 2023/06/01 20:54:00 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/05 23:59:22 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftpushswap.a
+NAME = libftchecker.a
 
-FILES = checker.c push_swap_test.c lst_actions.c error_arg_check.c\
-		lst_print_stacks.c lst_print_structs.c lst_fill_stats.c lst_sort_plus.c\
-		lst_fill_index.c lst_sort_plus_aux.c
+FILES = checker.c lst_actions.c error_arg_check.c
 
 OBJECTS = $(FILES:.c=.o)
 

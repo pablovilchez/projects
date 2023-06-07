@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 04:06:56 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/05 19:35:31 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:16:41 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,17 @@ size_t	is_sorted(t_node **lst_a, t_node **lst_b)
 
 void	push_swap(t_node **lst_a, t_node **lst_b)
 {
+	int	lst_size;
+
+	lst_size = ft_lstsize(*lst_a);
 	if (!is_sorted(lst_a, lst_b))
 	{
 		lst_fill_index(lst_a, lst_b);
-		if (ft_lstsize(*lst_a) == 2)
+		if (lst_size == 2)
 			lst_sort_two(lst_a, lst_b);
-		else if (ft_lstsize(*lst_a) == 3)
+		else if (lst_size == 3)
 			lst_sort_three(lst_a, lst_b);
-		else
+		else if (lst_size > 3)
 			lst_sort_plus(lst_a, lst_b);
 	}
 }

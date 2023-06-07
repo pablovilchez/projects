@@ -6,84 +6,45 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/06 20:41:20 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/07 00:30:12 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-FILES = ft_atoi.c\
-		ft_bzero.c\
-		ft_calloc.c\
-		ft_isalnum.c\
-		ft_isalpha.c\
-		ft_isascii.c\
-		ft_isdigit.c\
-		ft_isprint.c\
-		ft_itoa.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_memcpy.c\
-		ft_memmove.c\
-		ft_memset.c\
-		ft_putchar_fd.c\
-		ft_putendl_fd.c\
-		ft_putnbr_fd.c\
-		ft_putstr_fd.c\
-		ft_split.c\
-		ft_strchr.c\
-		ft_strdup.c\
-		ft_striteri.c\
-		ft_strjoin.c\
-		ft_strlcat.c\
-		ft_strlcpy.c\
-		ft_strlen.c\
-		ft_strmapi.c\
-		ft_strncmp.c\
-		ft_strnstr.c\
-		ft_strrchr.c\
-		ft_strtrim.c\
-		ft_substr.c\
-		ft_tolower.c\
-		ft_toupper.c
-
-F_BONUS = ft_lstadd_back.c\
-		ft_lstadd_front.c\
-		ft_lstclear.c\
-		ft_lstdelone.c\
-		ft_lstiter.c\
-		ft_lstlast.c\
-		ft_lstmap.c\
-		ft_lstnew.c\
-		ft_lstsize.c
-
-
-OBJECTS = $(FILES:.c=.o)
-
-OBJ_BONUS = $(F_BONUS:.c=.o)
-
-FLAGS = -Wall -Wextra -Werror
-
-all: $(NAME)
-
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
-
-$(OBJECTS): $(FILES)
-	gcc $(FLAGS) -c $(FILES)
-
-bonus: $(OBJECTS) $(OBJ_BONUS)
-	ar rcs $(NAME) $(OBJECTS) $(OBJ_BONUS)
-
-$(OBJ_BONUS): $(F_BONUS)
-	gcc $(FLAGS) -c $(F_BONUS)
-
+# Nombre del programa final que se generará
+NAME		= libft.a
+# Flags de compilacion
+FLAGS		= -Wall -Wextra -Werror -g -Ofast
+# Directorios
+SRC_DIR		= ./srcs/
+OBJ_DIR		= ./obj/
+INC_DIR		= ./includes/
+# Archivos fuentes y objetos
+SRC_FILES	= $(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES	= $(SRC_FILES:.c=.o)
+# Direcciones
+SRC			= $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ			= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
+# Linkers
+LNK			= -Ofast
+# Se compila el archivo binario (ejecutable).
+all: obj
+	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compilando, espere unos segundos..."
+	@ar rcs $(NAME) $(OBJ_FILES)
+	@echo "(•̀ᴗ•́)و $(NAME) generado!"
+# Crea la carpeta donde estara los objetos.
+obj:
+	@mkdir -p $(OBJ_DIR)
+	$(OBJ_DIR)%.o:$(SRC_DIR)%.c
+	@gcc $(FLAGS) -I $(INC_DIR) -o $@ -c $<
+# Remueve todos los archivos objetos
 clean:
-	rm -f $(OBJECTS) $(OBJ_BONUS)
-
+	@rm -Rf $(OBJ_DIR)
+	@echo "¯\_(ツ)_/¯ Objectos removidos!"
+# Remueve todos los archivos objetos, binarios, y sus respectivas carpetas
 fclean: clean
-	rm -f $(NAME)
-
+	@rm -f $(NAME)
+	@echo "(╯°□°）╯︵ ┻━┻ $(NAME) removido!"
+# Hace un re-make (como si se hubiera ejecutado Make por primera vez)
 re: fclean all
-
-.PHONY: all clean fclean re bonus
+# Le dice al make que estos nombre no son archivos
+.PHONY: all clean fclean re

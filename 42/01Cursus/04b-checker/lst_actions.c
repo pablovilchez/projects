@@ -6,11 +6,11 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 22:32:57 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/01 02:15:38 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/06 00:01:03 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftpushswap.h"
+#include "libftchecker.h"
 
 void	push(t_node **lst_a, t_node **lst_b, char x)
 {
@@ -100,7 +100,7 @@ void	reverse(t_node **lst_a, t_node **lst_b, char x)
 		*lst_a = last;
 		before_last->next = NULL;
 	}
-	if ((x == 'b' || x == 's') && ft_lstsize(*lst_b) > 1)
+	if ((x == 'b' || x == 'r') && ft_lstsize(*lst_b) > 1)
 	{
 		before_last = *lst_b;
 		last = ft_lstlast(*lst_b);

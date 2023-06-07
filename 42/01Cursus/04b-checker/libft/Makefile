@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/29 04:47:07 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/06 19:27:44 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,28 +24,34 @@ FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 
 OBJECTS = $(FILES:.c=.o)
 
-FTPRINTF_PATH = ftprintf/libftprintf.a
+FTPRINTF_PATH = ft_printf/libftprintf.a
+
+FTGNL_PATH = ft_get_next_line/libftgetnextline.a
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(FTPRINTF_PATH) $(OBJECTS)
-	cp $(FTPRINTF_PATH) $(NAME)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(FTPRINTF_PATH) $(FTGNL_PATH) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS) $(FTPRINTF_PATH) $(FTGNL_PATH)
 
 $(OBJECTS): $(FILES)
 	gcc $(FLAGS) -c $(FILES)
 
 $(FTPRINTF_PATH):
-	make -C ftprintf/ all
+	make -C ft_printf/ all
+
+$(FTGNL_PATH):
+	make -C ft_get_next_line/ all
 
 clean:
-	make -C ftprintf/ clean
+	make -C ft_printf/ clean
+	make -C ft_get_next_line/ clean
 	rm -f $(OBJECTS)
 
 fclean: clean
-	make -C ftprintf/ fclean
+	make -C ft_printf/ fclean
+	make -C ft_get_next_line/ fclean
 	rm -f $(NAME)
 
 re: fclean all

@@ -10,6 +10,7 @@
         "libftpushswap.h": "c",
         "algorithm": "c",
         "type_traits": "c",
-        "libftpipex.h": "c"
+        "libftpipex.h": "c",
+        "libft.h": "c"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 23:22:44 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/03 20:02:11 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:16:54 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	main(int argc, char *argv[])
 
 	lst_a = NULL;
 	two = 0;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 	{
 		two = 1;
