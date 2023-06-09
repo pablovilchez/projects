@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:57:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/08 23:01:16 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:52:23 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,13 @@ size_t	print_int(int nbr);
 size_t	print_str(char *str);
 size_t	print_unsig_int(unsigned int nbr);
 size_t	print_void(void *p);
-// Funciones de get_next_line
-char	*get_next_line(int fd);
+// Funciones de ft_get_next_line
+char	*ft_get_next_line(int fd);
 char	*file_to_static(int fd, char *static_str);
 char	*line_to_print(char *static_str, char *line);
 char	*extra_data(char *static_str);
 size_t	find_nl(char *str);
 size_t	count_nl(char *str);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-size_t	ft_strlen(const char *str);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 void	*ft_calloc_gnl(size_t number, size_t size);
 

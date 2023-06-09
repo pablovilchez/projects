@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 01:28:41 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/01 20:09:18 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:09:05 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ int	reverse_b(t_node **lst_a, t_node **lst_b)
 {
 	reverse(lst_a, lst_b, 'b');
 	return (1);
+}
+
+int	sum_abs(int a, int b)
+{
+	if (a < 0)
+		a *= -1;
+	if (b < 0)
+		b *= -1;
+	return (a + b);
 }

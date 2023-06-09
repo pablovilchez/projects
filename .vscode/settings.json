@@ -11,6 +11,7 @@
         "algorithm": "c",
         "type_traits": "c",
         "libftpipex.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "__node_handle": "c"
     }
 }

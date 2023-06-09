@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:13:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/08 22:59:52 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:49:09 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,6 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	dest[i] = '\0';
 	free (s1);
 	return (dest);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(str + i) != '\0')
-		i++;
-	return (i);
 }
 
 size_t	count_nl(char *str)

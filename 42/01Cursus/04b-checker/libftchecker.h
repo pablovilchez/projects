@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:11:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/06 19:20:21 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:36:06 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t	check_int(int argc, char *argv[]);
 size_t	check_int_len(size_t len, char sig, char *str);
 //Funciones del archivo:	checker.c
 void	checker(t_node **lst_a, t_node **lst_b);
-int		check_order(t_node **lst_a, t_node **lst_b, char *order);
+void	check_order(t_node **lst_a, t_node **lst_b, char *order);
 size_t	is_sorted(t_node **lst_a, t_node **lst_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 22:32:57 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/06 00:01:03 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:46:20 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	push(t_node **lst_a, t_node **lst_b, char x)
 		aux->next = aux_b;
 		*lst_b = aux;
 	}
-	ft_printf("p%c\n", x);
 }
 
 void	swap(t_node **lst_a, t_node **lst_b, char x)
@@ -58,7 +57,6 @@ void	swap(t_node **lst_a, t_node **lst_b, char x)
 		aux_a->next = aux_b->next;
 		aux_b->next = aux_a;
 	}
-	ft_printf("s%c\n", x);
 }
 
 void	rotate(t_node **lst_a, t_node **lst_b, char x)
@@ -82,7 +80,6 @@ void	rotate(t_node **lst_a, t_node **lst_b, char x)
 		last->next = first;
 		first->next = NULL;
 	}
-	ft_printf("r%c\n", x);
 }
 
 void	reverse(t_node **lst_a, t_node **lst_b, char x)
@@ -110,5 +107,4 @@ void	reverse(t_node **lst_a, t_node **lst_b, char x)
 		*lst_b = last;
 		before_last->next = NULL;
 	}
-	ft_printf("rr%c\n", x);
 }

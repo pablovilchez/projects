@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 06:00:01 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/07 23:36:16 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:15:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,23 @@ int	lst_select_node(t_node **lst)
 	t_node	*node;
 	int		total_cost;
 	int		best;
+	int		s;
 
 	node = *lst;
 	best = 1;
-	total_cost = abs(node->cost_a) + abs(node->cost_b);
+	total_cost = sum_abs(node->cost_a, node->cost_b);
 	node = node->next;
 	while (node)
 	{
-		if ((abs(node->cost_a) + abs(node->cost_b)) < total_cost)
+		s = node->cost_a * node->cost_b;
+		if (sum_abs(node->cost_a, node->cost_b) < total_cost)
 		{
-			total_cost = abs(node->cost_a) + abs(node->cost_b);
+			total_cost = sum_abs(node->cost_a, node->cost_b);
+			best = node->pos;
+		}
+		else if (sum_abs(node->cost_a, node->cost_b) == total_cost && s > 0)
+		{
+			total_cost = sum_abs(node->cost_a, node->cost_b);
 			best = node->pos;
 		}
 		node = node->next;

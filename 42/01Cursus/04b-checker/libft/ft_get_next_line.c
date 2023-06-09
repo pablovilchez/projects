@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:01:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/08 22:56:18 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:52:05 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*extra_data(char *static_str)
 	len = ft_strlen(static_str) - count_nl(static_str);
 	if (len > 0)
 	{
-		str_aux = (char *)ft_calloc(len + 1, sizeof(char));
+		str_aux = (char *)ft_calloc_gnl(len + 1, sizeof(char));
 		if (str_aux == NULL)
 		{
 			free(static_str);
@@ -58,7 +58,7 @@ char	*line_to_print(char *static_str, char *line)
 		len = count_nl(static_str);
 	else
 		len = ft_strlen(static_str);
-	line = (char *)ft_calloc(len + 2, sizeof(char));
+	line = (char *)ft_calloc_gnl(len + 2, sizeof(char));
 	if (line == NULL)
 		return (NULL);
 	ft_memcpy(line, static_str, len);
@@ -71,14 +71,14 @@ char	*file_to_static(int fd, char *static_str)
 	int		num_bytes;
 	char	*buffer;
 
-	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+	buffer = (char *)ft_calloc_gnl((BUFFER_SIZE + 1), sizeof(char));
 	num_bytes = 1;
 	while (num_bytes > 0 && !(read(fd, 0, 0) == -1 || find_nl(static_str)))
 	{
 		num_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[num_bytes] = '\0';
 		if (buffer[0] != '\0')
-			static_str = ft_strjoin(static_str, buffer);
+			static_str = ft_strjoin_gnl(static_str, buffer);
 	}
 	free(buffer);
 	if (static_str && static_str[0] == 0)
@@ -89,14 +89,14 @@ char	*file_to_static(int fd, char *static_str)
 	return (static_str);
 }
 
-char	*get_next_line(int fd)
+char	*ft_get_next_line(int fd)
 {
 	static char	*static_str;
 	char		*line;
 
 	line = NULL;
 	if (!static_str)
-		static_str = (char *)ft_calloc(1, sizeof(char));
+		static_str = (char *)ft_calloc_gnl(1, sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(static_str);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex_long.c                                   :+:      :+:    :+:   */
+/*   ft_print_hex_long.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:09:22 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 13:49:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:57:38 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	phex_long(unsigned long long nbr, size_t *p)
 {

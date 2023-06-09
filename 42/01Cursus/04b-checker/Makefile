@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 20:09:10 by pvilchez          #+#    #+#              #
-#    Updated: 2023/06/05 23:59:22 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/09 22:15:34 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,9 @@ clean:
 	make -C libft/ clean
 	rm -f $(OBJECTS)
 
-fclean: clean
+fclean:
 	make -C libft/ fclean
+	rm -f $(OBJECTS)
 	rm -f $(NAME)
 
 re: fclean all

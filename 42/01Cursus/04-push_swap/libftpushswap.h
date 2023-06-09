@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 20:11:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/03 19:29:51 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:09:46 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		rotate_a(t_node **lst_a, t_node **lst_b, int mov_b);
 int		reverse_a(t_node **lst_a, t_node **lst_b, int mov_b);
 int		rotate_b(t_node **lst_a, t_node **lst_b);
 int		reverse_b(t_node **lst_a, t_node **lst_b);
+int		sum_abs(int a, int b);
 //Funciones del archivo:	error_check.c
 int		error_args(int argc, char *argv[], int two);
 //Funciones del archivo:	push_swap.c

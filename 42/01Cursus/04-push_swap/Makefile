@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 20:09:10 by pvilchez          #+#    #+#              #
-#    Updated: 2023/06/01 21:39:21 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/09 22:16:22 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,11 @@ $(LIBFT_PATH):
 
 clean:
 	make -C libft/ clean
-	rm -f $(OBJECTS)
+	rm -f $(addprefix $(OBJ_DIR)/, $(OBJECTS))
 
-fclean: clean
+fclean:
 	make -C libft/ fclean
+	rm -f $(addprefix $(OBJ_DIR)/, $(OBJECTS))
 	rm -f $(NAME)
 
 re: fclean all
