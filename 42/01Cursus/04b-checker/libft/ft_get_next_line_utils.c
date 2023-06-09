@@ -6,13 +6,13 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:13:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/05 22:33:51 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/08 22:59:52 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_get_next_line.h"
+#include "libft.h"
 
-void	*gnl_calloc(size_t number, size_t size)
+void	*ft_calloc_gnl(size_t number, size_t size)
 {
 	unsigned char	*c;
 	size_t			i;
@@ -29,7 +29,7 @@ void	*gnl_calloc(size_t number, size_t size)
 	return (c);
 }
 
-char	*gnl_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*dest;
 	size_t	i;
@@ -37,7 +37,7 @@ char	*gnl_strjoin(char *s1, char *s2)
 
 	if (!s1 || !s2 || s2[0] == '\0')
 		return (NULL);
-	dest = (char *)gnl_calloc((gnl_strlen(s1) + gnl_strlen(s2) + 1), 1);
+	dest = (char *)ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (dest == NULL)
 		return (0);
 	i = 0;
@@ -58,7 +58,7 @@ char	*gnl_strjoin(char *s1, char *s2)
 	return (dest);
 }
 
-size_t	gnl_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -68,26 +68,7 @@ size_t	gnl_strlen(const char *str)
 	return (i);
 }
 
-void	*gnl_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
-
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	i = 0;
-	if (!n || dest == src)
-		return (dest);
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (d);
-}
-
-size_t	gnl_count_nl(char *str)
+size_t	count_nl(char *str)
 {
 	size_t	i;
 

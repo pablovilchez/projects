@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 06:00:01 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/05 19:37:12 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:36:16 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	push_to_b(t_node **lst_a, t_node **lst_b)
 	total_a = ft_lstsize(*lst_a);
 	count_total = total_a;
 	count_half = total_a / 2;
-	while (count_total > 3 && count_half > 0)
+	while (count_total > 5 && count_half > 0)
 	{
 		node = *lst_a;
 		if (node->index <= total_a / 2)

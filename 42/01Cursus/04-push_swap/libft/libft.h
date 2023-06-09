@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:57:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/03 19:34:55 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:46:31 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "ftprintf/ft_printf.h"
+# include <stdarg.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -51,6 +51,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *src, unsigned int start, size_t len);
 int		ft_tolower(int ch);
 int		ft_toupper(int ch);
+// Funciones del bonus de libft
 typedef struct s_list
 {
 	int				num;
@@ -69,5 +70,15 @@ t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int num);
 int		ft_lstsize(t_node *lst);
 void	*free_all(char **matrix, size_t num);
+// Funciones de ft_printf
+char	*ft_itoa_long(long n);
+int		ft_printf(const char *str, ...);
+size_t	print_hex_cap(unsigned int nbr);
+size_t	print_hex_long(unsigned long long nbr);
+size_t	print_hex(unsigned int nbr);
+size_t	print_int(int nbr);
+size_t	print_str(char *str);
+size_t	print_unsig_int(unsigned int nbr);
+size_t	print_void(void *p);
 
 #endif
