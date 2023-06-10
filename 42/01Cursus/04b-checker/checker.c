@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 04:06:56 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/09 22:44:37 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:12:39 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	is_sorted(t_node **lst_a, t_node **lst_b)
 	return (0);
 }
 
-void	check_order(t_node **lst_a, t_node **lst_b, char *order)
+int	check_order(t_node **lst_a, t_node **lst_b, char *order)
 {
 	if (ft_strncmp(order, "pa\n", 4) == 0)
 		push(lst_a, lst_b, 'a');
@@ -63,19 +63,27 @@ void	check_order(t_node **lst_a, t_node **lst_b, char *order)
 		reverse(lst_a, lst_b, 'b');
 	else if (ft_strncmp(order, "rrr\n", 4) == 0)
 		reverse(lst_a, lst_b, 'r');
+	else
+		return (1);
+	return (0);
 }
 
 void	checker(t_node **lst_a, t_node **lst_b)
 {
 	char	*order;
+	int		error;
 
+	error = 0;
 	order = ft_get_next_line(0);
 	while (order)
 	{
-		check_order(lst_a, lst_b, order);
+		if (check_order(lst_a, lst_b, order))
+			error = 1;
 		order = ft_get_next_line(0);
-	}	
-	if (is_sorted(lst_a, lst_b))
+	}
+	if (error)
+		ft_printf("Error\n");
+	else if (is_sorted(lst_a, lst_b))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
