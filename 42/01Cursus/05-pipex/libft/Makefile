@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 13:11:53 by pvilchez          #+#    #+#              #
-#    Updated: 2023/05/29 04:47:07 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/09 21:50:42 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,34 +18,30 @@ FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 		ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c\
 		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c\
 		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
-		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c ft_lstadd_back.c\
-		ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstlast.c ft_lstnew.c\
-		ft_lstsize.c
+		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+		ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
+		ft_lstlast.c ft_lstnew.c ft_lstsize.c\
+		ft_itoa_long.c ft_printf.c ft_print_hex_cap.c ft_print_hex_long.c\
+		ft_print_hex.c ft_print_int.c ft_print_str.c ft_print_unsig_int.c\
+		ft_print_void.c\
+		ft_get_next_line.c ft_get_next_line_utils.c
 
 OBJECTS = $(FILES:.c=.o)
-
-FTPRINTF_PATH = ftprintf/libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(FTPRINTF_PATH) $(OBJECTS)
-	cp $(FTPRINTF_PATH) $(NAME)
+$(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(FILES)
 	gcc $(FLAGS) -c $(FILES)
 
-$(FTPRINTF_PATH):
-	make -C ftprintf/ all
-
 clean:
-	make -C ftprintf/ clean
 	rm -f $(OBJECTS)
 
 fclean: clean
-	make -C ftprintf/ fclean
 	rm -f $(NAME)
 
 re: fclean all

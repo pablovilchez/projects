@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex_cap.c                                    :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 20:30:53 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 13:50:00 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/04 19:59:41 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/06/09 18:57:43 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	phex_cap(unsigned int nbr, size_t *p)
+void	phex(unsigned int nbr, size_t *p)
 {
 	size_t	i;
 	char	*alpha;
 
-	alpha = "0123456789ABCDEF";
+	alpha = "0123456789abcdef";
 	if (nbr >= 16)
-		phex_cap(nbr / 16, p);
+		phex(nbr / 16, p);
 	i = (nbr % 16);
 	ft_putchar_fd(alpha[i], 1);
 	*p = *p + 1;
 }
 
-size_t	print_hex_cap(unsigned int nbr)
+size_t	print_hex(unsigned int nbr)
 {
 	size_t	count;
 	size_t	*p;
 
 	count = 0;
 	p = &count;
-	phex_cap(nbr, p);
+	phex(nbr, p);
 	return (count);
 }
