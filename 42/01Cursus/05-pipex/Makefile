@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 20:09:10 by pvilchez          #+#    #+#              #
-#    Updated: 2023/06/01 21:41:22 by pvilchez         ###   ########.fr        #
+#    Updated: 2023/06/10 00:33:57 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT_PATH = libft/libft.a
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
-	gcc $(FLAGS) -o pipex $(NAME)
+	gcc $(FLAGS) -o pipex main.c $(NAME)
 
 $(NAME): $(LIBFT_PATH) $(OBJECTS)
 	cp $(LIBFT_PATH) $(NAME)
@@ -37,8 +37,9 @@ clean:
 	make -C libft/ clean
 	rm -f $(OBJECTS)
 
-fclean: clean
+fclean:
 	make -C libft/ fclean
+	rm -f $(OBJECTS)
 	rm -f $(NAME)
 
 re: fclean all

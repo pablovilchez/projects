@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str.c                                        :+:      :+:    :+:   */
+/*   ft_print_void.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 20:08:10 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/05/07 11:37:48 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/03 20:20:34 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/06/09 18:58:00 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t	print_str(char *str)
+size_t	print_void(void *p)
 {
-	if (str == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	size_t	count;
+
+	count = 0;
+	ft_putstr_fd("0x", 1);
+	count += 2;
+	count += print_hex_long((unsigned long long)p);
+	return (count);
 }
