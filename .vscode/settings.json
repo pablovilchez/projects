@@ -12,6 +12,7 @@
         "type_traits": "c",
         "libftpipex.h": "c",
         "libft.h": "c",
-        "__node_handle": "c"
+        "__node_handle": "c",
+        "pipex_total": "c"
     }
 }

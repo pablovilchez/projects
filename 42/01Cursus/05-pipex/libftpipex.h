@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:36:33 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include "libft/libft.h"
+
 typedef struct s_pipex
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	int		in_fd;
+	int		out_fd;
+	int		here_doc;
+	int		is_invalid_infile;
+	char	**cmd_paths;
+	char	***cmd_args;
+	int		cmd_count;
+}			t_pipex;
 
 #endif
