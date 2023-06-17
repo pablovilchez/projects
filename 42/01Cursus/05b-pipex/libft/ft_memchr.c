@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpipex.h                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/23 00:31:49 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/23 00:50:38 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPIPEX_H
-# define LIBFTPIPEX_H
+#include <stdlib.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
-typedef struct s_pipex
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	unsigned char	*p;
+	size_t			i;
 
-#endif
+	i = 0;
+	p = (unsigned char *)str;
+	while (i < n)
+	{
+		if (p[i] == (unsigned char)c)
+			return (&p[i]);
+		i++;
+	}
+	return (0);
+}

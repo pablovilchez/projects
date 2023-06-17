@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpipex.h                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/18 16:58:43 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/23 11:43:36 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPIPEX_H
-# define LIBFTPIPEX_H
+#include <stdlib.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
-typedef struct s_pipex
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-#endif
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	if (!n || dest == src)
+		return (dest);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (d);
+}

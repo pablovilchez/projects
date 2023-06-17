@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpipex.h                                       :+:      :+:    :+:   */
+/*   ft_print_hex_long.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/05/07 12:09:22 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/06/09 18:57:38 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPIPEX_H
-# define LIBFTPIPEX_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
-typedef struct s_pipex
+void	phex_long(unsigned long long nbr, size_t *p)
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	size_t	i;
+	char	*alpha;
 
-#endif
+	alpha = "0123456789abcdef";
+	if (nbr >= 16)
+		phex_long(nbr / 16, p);
+	i = (nbr % 16);
+	ft_putchar_fd(alpha[i], 1);
+	*p = *p + 1;
+}
+
+size_t	print_hex_long(unsigned long long nbr)
+{
+	size_t	count;
+	size_t	*p;
+
+	count = 0;
+	p = &count;
+	phex_long(nbr, p);
+	return (count);
+}

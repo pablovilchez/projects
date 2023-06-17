@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpipex.h                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/23 18:36:20 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/04/23 19:55:39 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPIPEX_H
-# define LIBFTPIPEX_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
-typedef struct s_pipex
+int	ft_atoi(const char *str)
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	int	i;
+	int	total;
+	int	s;
 
-#endif
+	i = 0;
+	total = 0;
+	s = 1;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\t' || str[i] == '\v')
+		i++;
+	if (str[i] == '-')
+		s *= -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		total = total * 10 + (str[i] - '0');
+		i++;
+	}
+	return (total * s);
+}

@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftpipex.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:43:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2023/06/14 22:18:33 by pvilchez         ###   ########.fr       */
+/*   Created: 2023/04/26 19:18:49 by pvilchez          #+#    #+#             */
+/*   Updated: 2023/06/02 18:36:42 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPIPEX_H
-# define LIBFTPIPEX_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
-typedef struct s_pipex
+void	putnbr_reverse(long num, int fd)
 {
-	int in_fd;
-	int out_fd;
-	int here_doc;
-	int is_invalid_infile;
-	char **cmd_paths;
-	char ***cmd_args;
-	int cmd_count;
-} t_pipex;
+	char	c;
 
-#endif
+	if (num >= 10)
+		putnbr_reverse(num / 10, fd);
+	c = num % 10 + '0';
+	ft_putchar_fd(c, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	num;
+
+	num = (long)n;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		num *= -1;
+	}
+	if (n == 0)
+		ft_putchar_fd('0', fd);
+	if (n != 0)
+		putnbr_reverse(num, fd);
+}
